@@ -9,5 +9,7 @@ terraform {
 
 provider "newrelic" {
   account_id = var.newrelic_account_id
-  api_key = "NRAK-YJCSTQM5D1F10XJS2JZ82IICHD6"
+  api_key = var.newrelic_api_key
+
+
 }

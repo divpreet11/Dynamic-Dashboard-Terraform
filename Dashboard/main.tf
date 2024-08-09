@@ -7,8 +7,10 @@ resource "newrelic_one_dashboard" "dynamicDashboard" {
     for_each = var.page
     content {
       name = page.value.name
+
       dynamic "widget_table" {
-        for_each = page.value.table
+        for_each = page.value.widget_table == true? page.value.table:{}
+        # for_each = page.value.table
         iterator = widget
         content {
           title  = widget.value.title
@@ -24,7 +26,8 @@ resource "newrelic_one_dashboard" "dynamicDashboard" {
       }
 
       dynamic "widget_bar" {
-        for_each = page.value.bar
+        for_each = page.value.widget_bar == true? page.value.bar:{}
+        # for_each = page.value.bar
         iterator = widget
 
         content {
@@ -42,7 +45,8 @@ resource "newrelic_one_dashboard" "dynamicDashboard" {
       }
 
       dynamic "widget_line" {
-        for_each = page.value.line
+        for_each = page.value.widget_line == true? page.value.line:{}
+        # for_each = page.value.line
         iterator = widget
         content {
           title  = widget.value.title
@@ -60,7 +64,8 @@ resource "newrelic_one_dashboard" "dynamicDashboard" {
 
 
       dynamic "widget_pie" {
-        for_each = page.value.pie
+        for_each = page.value.widget_pie == true? page.value.pie:{}
+        # for_each = page.value.pie
         iterator = widget
         content {
           title  = widget.value.title

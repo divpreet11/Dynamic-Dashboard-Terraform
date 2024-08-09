@@ -1,4 +1,5 @@
 newrelic_account_id = "4438264"
+newrelic_api_key    = "NRAK-YJCSTQM5D1F10XJS2JZ82IICHD6"
 
 dashboard = {
   "0" = {
@@ -8,6 +9,13 @@ dashboard = {
 page = {
   "0" = {
     name = "frontend"
+
+    # Chart types
+    widget_table = true
+    widget_bar = false
+    widget_line   = true
+    widget_pie  = true
+
     table = {
       "key1" = {
         title  = "Average duration, by application"
@@ -20,17 +28,17 @@ page = {
       }
     }
 
-    bar = {
-      "key1" = {
-        title  = "Session count"
-        row    = 1
-        column = 7
-        width  = 6
-        height = 3
+    # bar = {
+    #   "key1" = {
+    #     title  = "Session count"
+    #     row    = 1
+    #     column = 7
+    #     width  = 6
+    #     height = 3
 
-        query = "SELECT count(session) FROM BrowserInteraction FACET appName since 1 month ago"
-      }
-    }
+    #     query = "SELECT count(session) FROM BrowserInteraction FACET appName since 1 month ago"
+    #   }
+    # }
     line = {
       "key1" = {
         title  = "Largest Contentful Paint"
@@ -68,6 +76,13 @@ page = {
   }
   "1" = {
     name = "Backend"
+
+    # Chart types
+    widget_table = true
+    widget_bar = true
+    widget_line   = true
+    widget_pie  = true
+
     table = {
       "key1" = {
         title  = "Average Duration of APM Transactions"

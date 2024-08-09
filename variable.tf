@@ -3,55 +3,69 @@ variable "newrelic_account_id" {
   type        = string
 }
 
+variable "newrelic_api_key" {
+  description = "New Relic API Key"
+  type        = string
+}
+
 variable "dashboard" {
 
-  type= map(object({
-     name        = string
-    permissions = string}))
-    }
-   
-  
-     variable "page"{
-     type = map(object({
+  type = map(object({
+    name = string
+  permissions = string }))
+}
 
-      name = string
+variable "page" {
+  type = any
+}
 
-      table = map(object({
-        title  = string
-        row    = number
-        column = number
-        width  = number
-        height = number
-        query  = string
-      }))
+# variable "page" {
+#   type = map(object({
+#     type = any
+#     name = string
 
-      bar = map(object({
-        title  = string
-        row    = number
-        column = number
-        width  = number
-        height = number
-        query  = string
-      }))
+#   # Chart types
+#     widget_table = bool
+#     widget_bar = bool
+#     widget_line   = bool
+#     widget_pie  = bool
 
-      line = map(object({
-        title  = string
-        row    = number
-        column = number
-        width  = number
-        height = number
-        query  = string
-      }))
+#     table = optional(map(object({
+#       title  = string
+#       row    = number
+#       column = number
+#       width  = number
+#       height = number
+#       query  = string
+#     })))
 
-      pie = map(object({
-        title  = string
-        row    = number
-        column = number
-        width  = number
-        height = number
-        query  = string
-      }))
-    }))
-    }
-  
+#     bar = optional(map(object({
+#       title  = string
+#       row    = number
+#       column = number
+#       width  = number
+#       height = number
+#       query  = string
+#     })))
+
+#     line = optional(map(object({
+#       title  = string
+#       row    = number
+#       column = number
+#       width  = number
+#       height = number
+#       query  = string
+#     })))
+
+#     pie = optional(map(object({
+#       title  = string
+#       row    = number
+#       column = number
+#       width  = number
+#       height = number
+#       query  = string
+#     })))
+#   }))
+# }
+
 
